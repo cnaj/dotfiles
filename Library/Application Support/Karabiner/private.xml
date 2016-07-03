@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<root>
+  <devicevendordef>
+    <vendorname>CHERRY</vendorname>
+    <vendorid>0x046a</vendorid>
+  </devicevendordef>
+
+  <deviceproductdef>
+    <productname>MY_G80_KEYBOARD</productname>
+    <productid>0x0011</productid>
+  </deviceproductdef>
+  
+  <item>
+    <name>Custom German to US Keyboard mapping</name>
+    <identifier>private.de2us</identifier>
+    <autogen>
+      __KeyOverlaidModifier__
+      KeyCode::RETURN,
+      KeyCode::CONTROL_L,
+      KeyCode::RETURN
+    </autogen>
+    <autogen>
+      __KeyOverlaidModifier__
+      KeyCode::BACKSLASH,
+      KeyCode::CONTROL_L,
+      KeyCode::RETURN
+    </autogen>
+
+    <block>
+      <device_only>DeviceVendor::CHERRY,DeviceProduct::MY_G80_KEYBOARD</device_only>
+      
+      <autogen>
+        __KeyToKey__
+        KeyCode::UK_SECTION,
+        KeyCode::BACKSLASH
+      </autogen>
+    </block>
+
+    <block>
+      <device_not>DeviceVendor::CHERRY,DeviceProduct::MY_G80_KEYBOARD</device_not>
+      
+      <autogen>
+        __KeyToKey__
+        KeyCode::UK_SECTION,
+        KeyCode::BACKQUOTE
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::BACKQUOTE,
+        KeyCode::BACKSLASH
+      </autogen>
+    </block>
+  </item>
+</root>
