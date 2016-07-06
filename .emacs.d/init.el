@@ -2,7 +2,7 @@
 
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "https://melpa.org/packages/") t)
+             '("melpa-stable" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; configurations made by Custom ('M-x customize')
@@ -13,3 +13,6 @@
 ;; enable Winner mode: Cycle window configuration history by 'C-c
 ;; left' / 'C-c right'
 (winner-mode t)
+
+;; enable smartparens
+(require 'smartparens-config)
