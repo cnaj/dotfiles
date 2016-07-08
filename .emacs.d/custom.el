@@ -21,5 +21,7 @@
  '(ido-mode (quote both) nil (ido))
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
+ '(show-smartparens-global-mode t)
+ '(smartparens-global-mode t)
  '(tool-bar-mode nil)
  '(which-function-mode nil))
