@@ -26,6 +26,7 @@
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
  '(mouse-yank-at-point t)
+ '(projectile-global-mode t)
  '(recentf-max-menu-items 40)
  '(recentf-mode t)
  '(save-interprogram-paste-before-kill t)

@@ -30,3 +30,12 @@
 
 ;; configure use of flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; rust specific configs
+(add-hook 'rust-mode-hook #'company-mode)
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'rust-mode-hook
+	  '(lambda ()
+	     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+	     (local-set-key (kbd "TAB") #'company-indent-or-complete-common)))
