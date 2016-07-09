@@ -10,6 +10,9 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;; enable solarized theme
+(load-theme 'solarized)
+
 ;; enable Winner mode: Cycle window configuration history by 'C-c
 ;; left' / 'C-c right'
 (winner-mode t)
