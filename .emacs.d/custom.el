@@ -17,6 +17,7 @@
    (quote
     ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" default)))
  '(frame-background-mode (quote dark))
+ '(global-magit-file-mode t)
  '(ido-auto-merge-work-directories-length -1)
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
@@ -33,5 +34,6 @@
  '(scroll-bar-mode nil)
  '(show-smartparens-global-mode t)
  '(smartparens-global-mode t)
+ '(sp-autoinsert-pair nil)
  '(tool-bar-mode nil)
  '(which-function-mode nil))

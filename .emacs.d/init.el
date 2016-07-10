@@ -32,6 +32,7 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; rust specific configs
+(add-hook 'rust-mode-hook #'cargo-minor-mode)
 (add-hook 'rust-mode-hook #'company-mode)
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
@@ -39,3 +40,7 @@
 	  '(lambda ()
 	     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 	     (local-set-key (kbd "TAB") #'company-indent-or-complete-common)))
+
+;; Magit
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
