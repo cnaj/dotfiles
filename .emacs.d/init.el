@@ -44,3 +44,18 @@
 ;; Magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+;; Make C-a toggle between beginning of line and indentation
+(defun beginning-of-line-or-code ()
+  "move to beginning of line, or indentation"
+  (interactive)
+  (if (bolp)
+      (back-to-indentation)
+    (beginning-of-line)))
+(defun beginning-of-code-or-line ()
+  "move to first non-whitespace character, or beginning of line"
+  (interactive)
+  (if (= (point) (progn (back-to-indentation) (point)))
+      (beginning-of-line)))
+
+(global-set-key (kbd "C-a") 'beginning-of-line-or-code)
