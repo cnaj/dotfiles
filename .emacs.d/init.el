@@ -1,9 +1,14 @@
-;; MELPA package manager
-
 (require 'package)
+(setq package-enable-at-startup nil)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://melpa.org/packages/") t)
+
 (package-initialize)
+
+;; Bootstrap 'use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
 ;; configurations made by Custom ('M-x customize')
 
@@ -17,33 +22,58 @@
 ;; left' / 'C-c right'
 (winner-mode t)
 
-;; enable smartparens
-(require 'smartparens-config)
-
-;; on macOS, graphical Emacs doesn't run with shell environment, so
-;; copy PATH etc. from shell.
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
 ;; Changes all yes/no questions to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; configure use of flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;; on macOS, graphical Emacs doesn't run with shell environment, so
+;; copy PATH etc. from shell.
+(use-package exec-path-from-shell
+  :if (eq system-type 'darwin)
+  :config
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)))
+
+;; programming stuff
+(use-package magit
+  :config
+  :bind (("C-x g" . magit-status)
+	 ("C-x M-g" . magit-dispatch-popup)))
+
+(use-package smartparens
+  :config
+  (require 'smartparens-config))
+
+(use-package company)
+
+(use-package flycheck
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 ;; rust specific configs
-(add-hook 'rust-mode-hook #'cargo-minor-mode)
-(add-hook 'rust-mode-hook #'company-mode)
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'rust-mode-hook
-	  '(lambda ()
-	     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-	     (local-set-key (kbd "TAB") #'company-indent-or-complete-common)))
+(use-package rust-mode)
 
-;; Magit
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+(use-package cargo
+  :config
+  (add-hook 'rust-mode-hook #'cargo-minor-mode))
+
+(use-package flycheck-rust
+  :config
+  (add-hook 'rust-mode-hook
+	    '(lambda ()
+	       (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
+
+(use-package racer
+  :load-path "emacs-racer/"
+
+  :config
+  (add-hook 'rust-mode-hook #'racer-mode)
+
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  (add-hook 'racer-mode-hook #'company-mode)
+  (setq company-tooltip-align-annotations t)
+
+  :bind (:map rust-mode-map
+	      ("TAB" . company-indent-or-complete-common)))
 
 ;; Make C-a toggle between beginning of line and indentation
 (defun beginning-of-line-or-code ()
