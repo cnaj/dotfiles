@@ -15,39 +15,73 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;; Changes all yes/no questions to y/n
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; enable solarized theme
-(load-theme 'solarized)
+(use-package color-theme
+  :ensure t)
+(use-package color-theme-solarized
+  :ensure t
+  :demand t
+  :config
+  (load-theme 'solarized))
 
 ;; enable Winner mode: Cycle window configuration history by 'C-c
 ;; left' / 'C-c right'
-(winner-mode t)
-
-;; Changes all yes/no questions to y/n
-(fset 'yes-or-no-p 'y-or-n-p)
+(use-package winner
+  :config
+  (winner-mode))
 
 ;; on macOS, graphical Emacs doesn't run with shell environment, so
 ;; copy PATH etc. from shell.
 (use-package exec-path-from-shell
   :if (eq system-type 'darwin)
+  :ensure t
   :config
   (when (memq window-system '(mac ns))
     (exec-path-from-shell-initialize)))
 
 ;; programming stuff
 (use-package magit
-  :config
+  :ensure t
+  :demand t
   :bind (("C-x g" . magit-status)
-	 ("C-x M-g" . magit-dispatch-popup)))
+	 ("C-x M-g" . magit-dispatch-popup))
+  :config
+  (global-magit-file-mode))
+
+(use-package ido
+  :ensure t
+  :demand t
+  :init
+  (setq ido-auto-merge-work-directories-length -1)
+  (setq ido-enable-flex-matching t)
+  (setq ido-use-virtual-buffers t)
+  :config
+  (ido-mode)
+  (ido-everywhere)
+  (ido-ubiquitous-mode))
+
+(use-package company
+  :ensure t)
 
 (use-package smartparens
+  :ensure t
+  :init
+  (setq sp-autoinsert-pair nil)
   :config
-  (require 'smartparens-config))
-
-(use-package company)
+  (use-package smartparens-config)
+  (show-smartparens-global-mode)
+  (smartparens-global-mode))
 
 (use-package flycheck
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
+
+(use-package projectile
+  :config
+  (projectile-global-mode))
 
 ;; rust specific configs
 (use-package rust-mode)
@@ -65,12 +99,14 @@
 (use-package racer
   :load-path "emacs-racer/"
 
+  :init
+  (setq company-tooltip-align-annotations t)
+
   :config
   (add-hook 'rust-mode-hook #'racer-mode)
 
   (add-hook 'racer-mode-hook #'eldoc-mode)
   (add-hook 'racer-mode-hook #'company-mode)
-  (setq company-tooltip-align-annotations t)
 
   :bind (:map rust-mode-map
 	      ("TAB" . company-indent-or-complete-common)))
