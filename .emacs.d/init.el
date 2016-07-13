@@ -60,7 +60,11 @@
   (setq ido-use-virtual-buffers t)
   :config
   (ido-mode)
-  (ido-everywhere)
+  (ido-everywhere))
+
+(use-package ido-ubiquitous
+  :ensure t
+  :config
   (ido-ubiquitous-mode))
 
 (use-package company
