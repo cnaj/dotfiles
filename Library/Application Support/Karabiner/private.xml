@@ -9,10 +9,17 @@
     <productname>MY_G80_KEYBOARD</productname>
     <productid>0x0011</productid>
   </deviceproductdef>
-  
+  <deviceproductdef>
+    <productname>MY_G85_US_KEYBOARD</productname>
+    <productid>0x0023</productid>
+  </deviceproductdef>
+
   <item>
     <name>Custom German to US Keyboard mapping</name>
     <identifier>private.de2us</identifier>
+
+    <device_not>DeviceVendor::CHERRY,DeviceProduct::MY_G85_US_KEYBOARD</device_not>
+
     <autogen>
       __KeyOverlaidModifier__
       KeyCode::RETURN,
@@ -28,26 +35,26 @@
 
     <block>
       <device_only>DeviceVendor::CHERRY,DeviceProduct::MY_G80_KEYBOARD</device_only>
-      
+
       <autogen>
-        __KeyToKey__
-        KeyCode::UK_SECTION,
-        KeyCode::BACKSLASH
+	__KeyToKey__
+	KeyCode::UK_SECTION,
+	KeyCode::BACKSLASH
       </autogen>
     </block>
 
     <block>
       <device_not>DeviceVendor::CHERRY,DeviceProduct::MY_G80_KEYBOARD</device_not>
-      
+
       <autogen>
-        __KeyToKey__
-        KeyCode::UK_SECTION,
-        KeyCode::BACKQUOTE
+	__KeyToKey__
+	KeyCode::UK_SECTION,
+	KeyCode::BACKQUOTE
       </autogen>
       <autogen>
-        __KeyToKey__
-        KeyCode::BACKQUOTE,
-        KeyCode::BACKSLASH
+	__KeyToKey__
+	KeyCode::BACKQUOTE,
+	KeyCode::BACKSLASH
       </autogen>
     </block>
   </item>
