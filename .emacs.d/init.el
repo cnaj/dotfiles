@@ -27,6 +27,11 @@
   :config
   (load-theme 'solarized))
 
+(use-package diminish)
+
+(use-package whitespace
+  :diminish)
+
 ;; enable Winner mode: Cycle window configuration history by 'C-c
 ;; left' / 'C-c right'
 (use-package winner
@@ -67,11 +72,15 @@
   :config
   (ido-ubiquitous-mode))
 
+(use-package markdown-mode)
+
 (use-package company
-  :ensure t)
+  :ensure t
+  :diminish)
 
 (use-package smartparens
   :ensure t
+  :diminish
   :init
   (setq sp-autoinsert-pair nil)
   :config
@@ -84,36 +93,38 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package projectile
+  :diminish
   :config
   (projectile-global-mode))
 
 ;; rust specific configs
-(use-package rust-mode)
-
-(use-package cargo
+(use-package rust-mode
   :config
-  (add-hook 'rust-mode-hook #'cargo-minor-mode))
 
-(use-package flycheck-rust
-  :config
-  (add-hook 'rust-mode-hook
-	    '(lambda ()
-	       (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
+  (use-package cargo
+    :diminish
+    :config
+    (add-hook 'rust-mode-hook #'cargo-minor-mode))
 
-(use-package racer
-  :load-path "emacs-racer/"
+  (use-package flycheck-rust
+    :diminish
+    :config
+    (add-hook 'rust-mode-hook
+	      '(lambda ()
+		 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
 
-  :init
-  (setq company-tooltip-align-annotations t)
+  (use-package racer
+    :diminish
+    :init
+    (setq company-tooltip-align-annotations t)
+    (add-hook 'rust-mode-hook #'racer-mode)
 
-  :config
-  (add-hook 'rust-mode-hook #'racer-mode)
+    :config
+    (add-hook 'racer-mode-hook #'eldoc-mode)
+    (add-hook 'racer-mode-hook #'company-mode)
 
-  (add-hook 'racer-mode-hook #'eldoc-mode)
-  (add-hook 'racer-mode-hook #'company-mode)
-
-  :bind (:map rust-mode-map
-	      ("TAB" . company-indent-or-complete-common)))
+    :bind (:map rust-mode-map
+		("TAB" . company-indent-or-complete-common))))
 
 ;; Make C-a toggle between beginning of line and indentation
 (defun beginning-of-line-or-code ()
