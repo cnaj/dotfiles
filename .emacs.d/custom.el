@@ -12,6 +12,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(apropos-do-all t)
+ '(auto-revert-mode-text "")
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
  '(compilation-window-height 25)
@@ -25,13 +26,8 @@
       (width . 100)
       (height . 55))))
  '(frame-background-mode (quote dark))
- '(git-commit-setup-hook
-   (quote
-    (git-commit-save-message git-commit-setup-changelog-support git-commit-turn-on-auto-fill git-commit-propertize-diff with-editor-usage-message
-			     (lambda nil
-			       (whitespace-mode)))))
  '(global-auto-revert-mode t)
- '(global-whitespace-mode t)
+ '(global-whitespace-mode nil)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(line-spacing 0.2)

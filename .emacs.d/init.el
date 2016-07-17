@@ -30,7 +30,15 @@
 (use-package diminish)
 
 (use-package whitespace
-  :diminish)
+  :commands (whitespace-buffer
+	     whitespace-cleanup
+	     whitespace-mode)
+  :init
+  (dolist (hook '(prog-mode-hook conf-mode-hook))
+    (add-hook hook #'whitespace-mode))
+  :diminish (global-whitespace-mode
+	     whitespace-mode
+	     whitespace-newline-mode))
 
 ;; enable Winner mode: Cycle window configuration history by 'C-c
 ;; left' / 'C-c right'
@@ -76,45 +84,43 @@
 
 (use-package company
   :ensure t
-  :diminish)
+  :diminish company-mode)
 
 (use-package smartparens
   :ensure t
-  :diminish
   :init
   (setq sp-autoinsert-pair nil)
   :config
   (use-package smartparens-config)
   (show-smartparens-global-mode)
-  (smartparens-global-mode))
+  (smartparens-global-mode)
+  :diminish smartparens-mode)
 
 (use-package flycheck
   :config
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package projectile
-  :diminish
   :config
-  (projectile-global-mode))
+  (projectile-global-mode)
+  :diminish projectile-mode)
 
 ;; rust specific configs
 (use-package rust-mode
   :config
 
   (use-package cargo
-    :diminish
     :config
-    (add-hook 'rust-mode-hook #'cargo-minor-mode))
+    (add-hook 'rust-mode-hook #'cargo-minor-mode)
+    :diminish cargo-minor-mode)
 
   (use-package flycheck-rust
-    :diminish
     :config
     (add-hook 'rust-mode-hook
 	      '(lambda ()
 		 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
 
   (use-package racer
-    :diminish
     :init
     (setq company-tooltip-align-annotations t)
     (add-hook 'rust-mode-hook #'racer-mode)
@@ -124,7 +130,8 @@
     (add-hook 'racer-mode-hook #'company-mode)
 
     :bind (:map rust-mode-map
-		("TAB" . company-indent-or-complete-common))))
+		("TAB" . company-indent-or-complete-common))
+    :diminish (racer-mode eldoc-mode)))
 
 ;; Make C-a toggle between beginning of line and indentation
 (defun beginning-of-line-or-code ()
