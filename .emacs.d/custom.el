@@ -15,6 +15,7 @@
  '(auto-revert-mode-text "")
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
+ '(compilation-mode-hook (quote ((lambda nil (toggle-truncate-lines -1)))))
  '(compilation-window-height 25)
  '(create-lockfiles nil)
  '(custom-safe-themes
@@ -25,6 +26,7 @@
      ((vertical-scroll-bars)
       (width . 100)
       (height . 55))))
+ '(delete-selection-mode t)
  '(frame-background-mode (quote dark))
  '(global-auto-revert-mode t)
  '(global-whitespace-mode nil)
