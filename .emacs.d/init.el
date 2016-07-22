@@ -110,17 +110,20 @@
   :config
 
   (use-package cargo
+    :ensure t
     :config
     (add-hook 'rust-mode-hook #'cargo-minor-mode)
     :diminish cargo-minor-mode)
 
   (use-package flycheck-rust
+    :ensure t
     :config
     (add-hook 'rust-mode-hook
 	      '(lambda ()
 		 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
 
   (use-package racer
+    :ensure t
     :init
     (setq company-tooltip-align-annotations t)
     (add-hook 'rust-mode-hook #'racer-mode)
@@ -132,6 +135,15 @@
     :bind (:map rust-mode-map
 		("TAB" . company-indent-or-complete-common))
     :diminish (racer-mode eldoc-mode)))
+
+;; ledger
+(use-package ledger-mode
+  :init
+  (setq ledger-post-amount-alignment-at :decimal)
+  (setq ledger-post-use-completion-engine :ido)
+  (setq ledger-reconcile-default-commodity "€")
+  (setq ledger-reconcile-default-date-format "%Y-%m-%d")
+  (setq ledger-use-iso-dates t))
 
 ;; Make C-a toggle between beginning of line and indentation
 (defun beginning-of-line-or-code ()
