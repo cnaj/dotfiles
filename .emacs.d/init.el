@@ -138,6 +138,7 @@
 
 ;; ledger
 (use-package ledger-mode
+  :mode "\\.ledger\\'"
   :init
   (setq ledger-post-amount-alignment-at :decimal)
   (setq ledger-post-use-completion-engine :ido)

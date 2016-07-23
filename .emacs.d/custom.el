@@ -35,6 +35,7 @@
  '(line-spacing 0.2)
  '(menu-bar-mode nil)
  '(mouse-yank-at-point t)
+ '(org-babel-load-languages (quote ((sh . t) (ledger . t) (emacs-lisp . t))))
  '(recentf-max-menu-items 40)
  '(recentf-mode t)
  '(save-interprogram-paste-before-kill t)
