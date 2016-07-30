@@ -5,7 +5,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="gentoo"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -107,4 +108,10 @@ fi
 
 if [[ -d $HOME/src/rust-lang/rust/src ]]; then
     export RUST_SRC_PATH=$HOME/src/rust-lang/rust/src
+fi
+
+# miscellaneous
+
+if [[ -d /usr/local/opt/android-sdk ]]; then
+    export ANDROID_HOME=/usr/local/opt/android-sdk
 fi
