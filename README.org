@@ -6,8 +6,6 @@
 
 *** Emacs+ key bindings
 
-For reference: Selected bindings.
-
 | /Command/           | /Binding/ | /When/                 |
 |---------------------+-----------+------------------------|
 | Word Completion     | =C-.=     | Editing Text           |
@@ -28,3 +26,7 @@ For reference: Selected bindings.
 |---------------------+-----------+------------------------|
 | Open Declaration    | =<esc> .= | Editing Java* Source   |
 
+/Note:/ I had to cheat: org-mode wouldn't format entries containing a
+"," correctly because it's not allowed next to a markup character, so
+I had to add a /NO-BREAK-SPACE/ (=U+00A0=) after it. Another possible
+solution is [[http://stackoverflow.com/a/30911987]].
