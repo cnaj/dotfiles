@@ -19,3 +19,8 @@ fi
 if [[ -d $HOME/src/rust-lang/rust/src ]]; then
     export RUST_SRC_PATH=$HOME/src/rust-lang/rust/src
 fi
+
+# miscellaneous
+if [[ -d /usr/local/opt/android-sdk ]]; then
+    export ANDROID_HOME=/usr/local/opt/android-sdk
+fi
