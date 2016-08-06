@@ -35,7 +35,7 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -49,12 +49,9 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew mvn encode64 jsontools)
+plugins=(git brew mvn encode64 jsontools urltools)
 
 # User configuration
-
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,25 +83,18 @@ source $ZSH/oh-my-zsh.sh
 
 # own stuff
 
-SHARE_HISTORY="false"
-
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 #alias vi=$EDITOR
 export EDITOR="emacs -nw"
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export LESS="\
+--quit-if-one-screen \
+--ignore-case \
+--LONG-PROMPT \
+--QUIET \
+--RAW-CONTROL-CHARS \
+--chop-long-lines \
+--window=-2"
 
-# security sensitive access tokens kept in different file
-if [[ -f ~/.tokens.sh ]]; then
-    source ~/.tokens.sh
-fi
-
-# rust stuff
-if [[ -d $HOME/.cargo/bin ]]; then
-    export PATH=$HOME/.cargo/bin:$PATH
-fi
-
-if [[ -d $HOME/src/rust-lang/rust/src ]]; then
-    export RUST_SRC_PATH=$HOME/src/rust-lang/rust/src
-fi
+unsetopt SHARE_HISTORY
