@@ -5,6 +5,10 @@
 
 (package-initialize)
 
+;; configurations
+
+(add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
+
 ;; Bootstrap 'use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -160,3 +164,4 @@
       (beginning-of-line)))
 
 (global-set-key (kbd "C-a") 'beginning-of-line-or-code)
+(put 'dired-find-alternate-file 'disabled nil)
