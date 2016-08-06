@@ -1,0 +1,30 @@
+#+TITLE: Dotfiles
+
+* Manually configured settings
+
+** Eclipse
+
+*** Emacs+ key bindings
+
+For reference: Selected bindings.
+
+| /Command/           | /Binding/ | /When/                 |
+|---------------------+-----------+------------------------|
+| Word Completion     | =C-.=     | Editing Text           |
+| Content Assist      | =M-/=     | In Dialogs and Windows |
+| Quick Fix           | =C-1=     | In Dialogs and Windows |
+|---------------------+-----------+------------------------|
+| Open Declaration    | =<f12>=   | In Windows             |
+| Open Implementation | =S-<f12>= | Editing Text           |
+|---------------------+-----------+------------------------|
+| Open Declaration    | =C-c .=   | In Windows             |
+| Open Implementation | =C-c i .= | Editing Text           |
+| Backward History    | =C-c , =  | In Windows             |
+|---------------------+-----------+------------------------|
+| Backward History    | =s-[=     | In Windows             |
+| Forward History     | =s-]=     | In Windows             |
+| Quick Hierarchy     | =C-[=     | Editing Java* Source   |
+| Quick Outline       | =C-]=     | Editing Java* Source   |
+|---------------------+-----------+------------------------|
+| Open Declaration    | =<esc> .= | Editing Java* Source   |
+
