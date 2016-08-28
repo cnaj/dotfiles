@@ -4,7 +4,13 @@
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+if [[ -d $HOME/bin ]]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+if [[ -f /usr/libexec/java_home ]]; then
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+fi
 
 # security sensitive access tokens kept in different file
 if [[ -f ~/.tokens.sh ]]; then
@@ -13,7 +19,7 @@ fi
 
 # rust stuff
 if [[ -d $HOME/.cargo/bin ]]; then
-    export PATH=$HOME/.cargo/bin:$PATH
+    export PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 if [[ -d $HOME/src/rust-lang/rust/src ]]; then

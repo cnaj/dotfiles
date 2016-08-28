@@ -50,7 +50,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew mvn encode64 jsontools urltools)
+plugins=(git brew mvn encode64 jsontools urltools copydir extract)
 
 # User configuration
 
@@ -89,13 +89,16 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 #alias vi=$EDITOR
 export EDITOR="emacs -nw"
 
+which lesspipe.sh > /dev/null
+if [[ $? -eq 0 ]]; then
+    eval `lesspipe.sh`
+fi
+
 export LESS="\
---quit-if-one-screen \
 --ignore-case \
 --LONG-PROMPT \
 --QUIET \
 --RAW-CONTROL-CHARS \
---chop-long-lines \
 --window=-2"
 
 unsetopt SHARE_HISTORY
