@@ -2,10 +2,12 @@ alias mvnva="mvn validate"
 alias mvnp="mvn package"
 alias mvncp="mvn clean package"
 
-alias e="emacs -nw"
-alias em="emacs"
-
 alias gloh="glo |head"
+
+# rebind "emacs" plugin aliases
+unalias te
+alias e="$EMACS_PLUGIN_LAUNCHER -nw"
+alias em="$EMACS_PLUGIN_LAUNCHER --no-wait"
 
 # YADM aliases
 alias ya='yadm add -u'

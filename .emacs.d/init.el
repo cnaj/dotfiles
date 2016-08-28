@@ -178,4 +178,11 @@
       (beginning-of-line)))
 
 (global-set-key (kbd "C-a") 'beginning-of-line-or-code)
+
 (put 'dired-find-alternate-file 'disabled nil)
+
+(defun dont-kill-emacs()
+  "Disable C-x C-c binding execute kill-emacs."
+  (interactive)
+  (error (substitute-command-keys "To exit emacs: \\[kill-emacs]")))
+(global-set-key (kbd "C-x C-c") 'dont-kill-emacs)
