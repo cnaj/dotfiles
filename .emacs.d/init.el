@@ -9,6 +9,13 @@
 
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 
+(add-to-list 'Info-default-directory-list "~/info")
+
+;; key bindings
+
+(global-set-key "\C-cj" 'join-line)
+(global-set-key "\C-ct" 'toggle-truncate-lines)
+
 ;; Bootstrap 'use-package'
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -43,6 +50,13 @@
   :diminish (global-whitespace-mode
 	     whitespace-mode
 	     whitespace-newline-mode))
+
+;; see http://stackoverflow.com/a/23382008
+(use-package ansi-color
+  :config
+  (defun display-ansi-colors ()
+    (interactive)
+    (ansi-color-apply-on-region (point-min) (point-max))))
 
 ;; enable Winner mode: Cycle window configuration history by 'C-c
 ;; left' / 'C-c right'

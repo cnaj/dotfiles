@@ -46,4 +46,5 @@
  '(which-function-mode nil)
  '(whitespace-style
    (quote
-    (face tabs spaces trailing lines-tail space-before-tab indentation empty space-after-tab space-mark tab-mark))))
+    (face tabs spaces trailing lines-tail space-before-tab indentation empty space-after-tab space-mark tab-mark)))
+ '(word-wrap t))
