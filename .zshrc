@@ -106,3 +106,16 @@ export LESS="\
 --no-init"
 
 unsetopt SHARE_HISTORY
+
+# Windows specific stuff
+if [[ `uname -o` == "Cygwin" ]]; then
+    export PATH=$PATH:/c/tools/emacs/bin
+    export EDITOR="emacsclientw -a runemacs -nw"
+    export GIT_EDITOR=$EDITOR
+
+    alias e="$EDITOR"
+    alias en="$EDITOR -n"
+    alias cdpb='cd "$(cygpath "$(pbpaste)")"'
+
+    alias yk="GIT_DIR=$(cygpath -m $USERPROFILE)/.yadm/repo.git GIT_WORK_TREE=$(cygpath -m $USERPROFILE) gitk --all --branches"
+fi

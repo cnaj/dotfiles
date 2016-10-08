@@ -1,12 +1,11 @@
 # This file holds settings for all (interactive and non-interactive)
 # shells and will be read in first.
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-# export MANPATH="/usr/local/man:$MANPATH"
+# windows setting:
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-if [[ -d $HOME/bin ]]; then
-    export PATH="$HOME/bin:$PATH"
-fi
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export MANPATH="/usr/local/man:$MANPATH"
 
 if [[ -f /usr/libexec/java_home ]]; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`

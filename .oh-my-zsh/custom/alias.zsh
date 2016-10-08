@@ -5,11 +5,6 @@ alias mvnrepo="mvn -Dmaven.repo.local=$REPO"
 
 alias gloh="glo -n 10"
 
-# rebind "emacs" plugin aliases
-unalias te
-alias e="$EMACS_PLUGIN_LAUNCHER -nw"
-alias en="$EMACS_PLUGIN_LAUNCHER --no-wait"
-
 # YADM aliases
 alias ya='yadm add -u'
 alias yc='yadm commit -v'

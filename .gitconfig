@@ -2,19 +2,33 @@
 	name = Tomas Cernaj
 	email = tomas@cernaj.de
 [core]
+	autocrlf = true
+	trustctime = false
+	filemode = false
+	ignoreCase = true
 [push]
 	default = simple
 [merge]
 	conflictStyle = diff3
+	tool = kdiff3
 [rebase]
 	autosquash = true
 [status]
 	submoduleSummary = true
 [diff]
 	submodule = log
+	tool = kdiff3
 [pull]
 	ff = only
 [fetch]
 	recurseSubmodules = on-demand
-[credential]
-	helper = osxkeychain
+	prune = true
+[mergetool]
+	keeptemporaries = false
+	keepbackups = false
+	prompt = false
+	trustexitcode = false
+[color]
+	ui = true
+[http]
+	sslVerify = true

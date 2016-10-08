@@ -1,5 +1,12 @@
 #+TITLE: Dotfiles
 
+* Windows adjustments
+
+The =windows= branch configures settings within [[http://babun.github.io/][Babun]].
+
+/Note:/ To set the home directory for Cygwin to the Windows user
+directory, set the Windows =HOME= environment variable to =%APPDATA%=.
+
 * Manually configured settings
 
 ** Eclipse

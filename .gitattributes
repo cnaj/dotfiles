@@ -1,0 +1,8 @@
+.emacs.d/**		-text
+.oh-my-zsh/**		-text
+.babun/**		-text
+.babunrc		-text
+.minttyrc		-text
+.zshenv			-text
+.zshrc			-text
+repair-zcompdump.sh	-text
