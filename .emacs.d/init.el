@@ -1,3 +1,5 @@
+(server-start)
+
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
@@ -8,6 +10,7 @@
 ;; configurations
 
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.g4\\'" . antlr-mode))
 
 (add-to-list 'Info-default-directory-list "~/info")
 
@@ -57,6 +60,16 @@
   (defun display-ansi-colors ()
     (interactive)
     (ansi-color-apply-on-region (point-min) (point-max))))
+
+;; Dired
+;; - Dired Omit Mode: activate with 'C-x M-o'
+(use-package dired-x)
+
+;; Org Mode
+(use-package ox-md)
+
+(use-package ox-confluence
+  :load-path "ox-confluence/")
 
 ;; enable Winner mode: Cycle window configuration history by 'C-c
 ;; left' / 'C-c right'
@@ -180,6 +193,7 @@
 (global-set-key (kbd "C-a") 'beginning-of-line-or-code)
 
 (put 'dired-find-alternate-file 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
 (defun dont-kill-emacs()
   "Disable C-x C-c binding execute kill-emacs."

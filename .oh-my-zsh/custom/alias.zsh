@@ -21,6 +21,18 @@ alias yf='yadm fetch'
 alias yg='yadm gui citool'
 alias yga='yadm gui citool --amend'
 alias yl='yadm pull'
+
+alias yl='yadm pull'
+alias ylg='yadm log --stat --color'
+alias ylgp='yadm log --stat --color -p'
+alias ylgg='yadm log --graph --color'
+alias ylgga='yadm log --graph --decorate --all'
+alias ylgm='yadm log --graph --max-count=10'
+alias ylo='yadm log --oneline --decorate --color'
+alias ylol="yadm log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias ylola="yadm log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all"
+alias ylog='yadm log --oneline --decorate --color --graph'
+
 alias yp='yadm push'
 alias ypu='yadm push upstream'
 alias yrb='yadm rebase'
