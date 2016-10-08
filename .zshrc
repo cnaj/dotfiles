@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 #alias vi=$EDITOR
-export EDITOR="e"
+export EDITOR="emacsclient -nw"
 
 which lesspipe.sh > /dev/null
 if [[ $? -eq 0 ]]; then

@@ -40,11 +40,12 @@
  '(recentf-mode t)
  '(save-interprogram-paste-before-kill t)
  '(scroll-bar-mode nil)
- '(show-trailing-whitespace t)
+ '(show-trailing-whitespace nil)
  '(sp-autoskip-closing-pair t)
  '(tool-bar-mode nil)
  '(which-function-mode nil)
+ '(whitespace-line-column nil)
  '(whitespace-style
    (quote
-    (face tabs spaces trailing lines-tail space-before-tab indentation empty space-after-tab space-mark tab-mark)))
+    (face tabs spaces trailing space-before-tab indentation empty space-after-tab space-mark tab-mark)))
  '(word-wrap t))
