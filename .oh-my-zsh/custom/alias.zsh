@@ -51,3 +51,5 @@ alias ysts='yadm stash show --text'
 alias yup='yadm pull --rebase'
 alias yupv='yadm pull --rebase -v'
 alias ywch='yadm whatchanged -p --abbrev-commit --pretty=medium'
+
+alias yk='GIT_DIR=~/.yadm/repo.git GIT_WORK_TREE=~ gitk --all --branches'
