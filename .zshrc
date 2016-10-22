@@ -94,6 +94,8 @@ if [[ $? -eq 0 ]]; then
     eval `lesspipe.sh`
 fi
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 export LESS="\
 --ignore-case \
 --LONG-PROMPT \
