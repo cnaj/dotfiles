@@ -36,6 +36,9 @@
  '(menu-bar-mode nil)
  '(mouse-yank-at-point t)
  '(org-babel-load-languages (quote ((sh . t) (ledger . t) (emacs-lisp . t))))
+ '(package-selected-packages
+   (quote
+    (adaptive-wrap yaml-mode dockerfile-mode use-package smartparens racer projectile markdown-mode magit ledger-mode js2-highlight-vars ido-ubiquitous git flycheck-rust exec-path-from-shell company color-theme-solarized color-theme-sanityinc-tomorrow cargo)))
  '(recentf-max-menu-items 40)
  '(recentf-mode t)
  '(save-interprogram-paste-before-kill t)

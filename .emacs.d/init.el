@@ -111,7 +111,12 @@
   :config
   (ido-ubiquitous-mode))
 
-(use-package markdown-mode)
+(use-package markdown-mode
+  :ensure t)
+(use-package yaml-mode
+  :ensure t)
+(use-package dockerfile-mode
+  :ensure t)
 
 (use-package company
   :ensure t
