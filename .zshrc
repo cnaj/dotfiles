@@ -99,6 +99,8 @@ export LESS="\
 --LONG-PROMPT \
 --QUIET \
 --RAW-CONTROL-CHARS \
---window=-2"
+--window=-2 \
+--quit-if-one-screen \
+--no-init"
 
 unsetopt SHARE_HISTORY

@@ -2,7 +2,7 @@ alias mvnva="mvn validate"
 alias mvnp="mvn package"
 alias mvncp="mvn clean package"
 
-alias gloh="glo |head"
+alias gloh="glo -n 10"
 
 # rebind "emacs" plugin aliases
 unalias te
@@ -53,3 +53,4 @@ alias yupv='yadm pull --rebase -v'
 alias ywch='yadm whatchanged -p --abbrev-commit --pretty=medium'
 
 alias yk='GIT_DIR=~/.yadm/repo.git GIT_WORK_TREE=~ gitk --all --branches'
+alias yloh="ylo -n 10"

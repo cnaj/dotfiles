@@ -1,0 +1,16 @@
+[core]
+	autocrlf = input
+[push]
+	default = simple
+[merge]
+	conflictStyle = diff3
+[rebase]
+	autosquash = true
+[status]
+	submoduleSummary = true
+[diff]
+	submodule = log
+[pull]
+	rebase = preserve
+[fetch]
+	recurseSubmodules = on-demand
