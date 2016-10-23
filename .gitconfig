@@ -1,3 +1,6 @@
+[user]
+	name = Tomas Cernaj
+	email = tomas@cernaj.de
 [core]
 	autocrlf = input
 [push]
@@ -14,3 +17,5 @@
 	rebase = preserve
 [fetch]
 	recurseSubmodules = on-demand
+[credential]
+	helper = osxkeychain
