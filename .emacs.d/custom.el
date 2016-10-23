@@ -46,6 +46,7 @@
  '(show-trailing-whitespace nil)
  '(sp-autoskip-closing-pair t)
  '(tool-bar-mode nil)
+ '(truncate-lines t)
  '(which-function-mode nil)
  '(whitespace-line-column nil)
  '(whitespace-style
