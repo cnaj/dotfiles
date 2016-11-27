@@ -7,7 +7,7 @@ alias gloh="glo -n 10"
 # rebind "emacs" plugin aliases
 unalias te
 alias e="$EMACS_PLUGIN_LAUNCHER -nw"
-alias em="$EMACS_PLUGIN_LAUNCHER --no-wait"
+alias en="$EMACS_PLUGIN_LAUNCHER --no-wait"
 
 # YADM aliases
 alias ya='yadm add -u'
