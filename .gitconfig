@@ -13,7 +13,6 @@
 [diff]
 	submodule = log
 [pull]
-	rebase = preserve
 	ff = only
 [fetch]
 	recurseSubmodules = on-demand
