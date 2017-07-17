@@ -1,6 +1,7 @@
 alias mvnva="mvn validate"
 alias mvnp="mvn package"
 alias mvncp="mvn clean package"
+alias mvnrepo="mvn -Dmaven.repo.local=$REPO"
 
 alias gloh="glo -n 10"
 
