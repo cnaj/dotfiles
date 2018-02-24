@@ -16,5 +16,3 @@
 	ff = only
 [fetch]
 	recurseSubmodules = on-demand
-[credential]
-	helper = osxkeychain
